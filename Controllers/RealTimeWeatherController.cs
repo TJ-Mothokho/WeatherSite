@@ -18,7 +18,6 @@ namespace WeatherSite.Controllers
             WeatherSite.Data.API api = new API();
             city1.CityName = cityName;
             string url = $"https://weatherapi-com.p.rapidapi.com/current.json?q={city1.GetCityName()}";
-            string url2 = $"https://weatherapi-com.p.rapidapi.com/current.json?q=Pretoria";
             WeatherData weather = api.GetData(url);
 
             return View(weather);

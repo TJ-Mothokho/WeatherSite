@@ -8,10 +8,10 @@
     {
         <div class="row g-3">
             <div class="col-auto">
-                @Html.LabelFor(model => model.CityName, new { @class = "form-label" })
+                <label for="lblCity" class="form-label">Enter City Name:</label>
             </div>
             <div class="col-auto">
-                @Html.TextBoxFor(model => model.CityName, new { @class = "form-control", placeholder = "e.g. Paris" })
+                <input type="text" class="form-control" id="inputCity" name="CityName" placeholder="e.g. Paris">
             </div>
 
             <div class="col-auto">
