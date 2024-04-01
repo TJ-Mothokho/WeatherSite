@@ -1,0 +1,22 @@
+﻿@model WeatherSite.Models.City;
+@{
+    ViewData["Title"] = "Real Time Weather";
+}
+
+<div>
+    @using (Html.BeginForm("Details", "RealTimeWeather", FormMethod.Post))
+    {
+        <div class="row g-3">
+            <div class="col-auto">
+                @Html.LabelFor(model => model.CityName, new { @class = "form-label" })
+            </div>
+            <div class="col-auto">
+                @Html.TextBoxFor(model => model.CityName, new { @class = "form-control", placeholder = "e.g. Paris" })
+            </div>
+
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Search</button>
+            </div>
+        </div>
+    }
+</div>
