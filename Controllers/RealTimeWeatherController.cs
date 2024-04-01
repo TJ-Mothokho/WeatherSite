@@ -11,7 +11,7 @@ namespace WeatherSite.Controllers
             return View();
         }
 
-        public IActionResult Details(string cityName)
+        public IActionResult Details(string apiKey, string cityName)
         {
             WeatherSite.Data.API api = new API();
 
@@ -20,7 +20,7 @@ namespace WeatherSite.Controllers
                 cityName = cityName.Replace(" ", "%20");
             }
 
-            WeatherData weather = api.GetData(cityName);
+            WeatherData weather = api.GetData(cityName, apiKey);
 
             return View(weather);
         }
