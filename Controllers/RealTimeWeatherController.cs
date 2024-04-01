@@ -6,8 +6,6 @@ namespace WeatherSite.Controllers
 {
     public class RealTimeWeatherController : Controller
     {
-        City city1 = new City();
-        private string CityName {  get; set; }
         public IActionResult Index()
         {
             return View();
@@ -16,11 +14,16 @@ namespace WeatherSite.Controllers
         public IActionResult Details(string cityName)
         {
             WeatherSite.Data.API api = new API();
-            city1.CityName = cityName;
-            string url = $"https://weatherapi-com.p.rapidapi.com/current.json?q={city1.GetCityName()}";
-            WeatherData weather = api.GetData(url);
+
+            if (cityName.Contains(" "))
+            {
+                cityName = cityName.Replace(" ", "%20");
+            }
+
+            WeatherData weather = api.GetData(cityName);
 
             return View(weather);
         }
+
     }
 }
