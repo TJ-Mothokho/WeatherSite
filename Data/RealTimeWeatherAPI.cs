@@ -2,7 +2,7 @@
 
 namespace WeatherSite.Data
 {
-    public class API
+    public class RealTimeWeatherAPI
     {
         public WeatherData GetData(string city)
         {

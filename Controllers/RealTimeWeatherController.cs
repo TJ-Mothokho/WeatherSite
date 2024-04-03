@@ -7,7 +7,7 @@ namespace WeatherSite.Controllers
     public class RealTimeWeatherController : Controller
     {
         WeatherData weather;
-        WeatherSite.Data.API api = new API();
+        WeatherSite.Data.RealTimeWeatherAPI api = new RealTimeWeatherAPI();
         
         public IActionResult Index()
         {
