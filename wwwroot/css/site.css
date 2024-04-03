@@ -18,5 +18,13 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #1B262C;
+}
+label {
+    color: white;
+}
+
+footer{
+    background-color: white;
 }

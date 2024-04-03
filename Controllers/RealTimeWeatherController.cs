@@ -6,21 +6,24 @@ namespace WeatherSite.Controllers
 {
     public class RealTimeWeatherController : Controller
     {
+        WeatherData weather;
+        WeatherSite.Data.API api = new API();
+        
         public IActionResult Index()
         {
-            return View();
+            weather = api.GetData("Paris"); //Default Parameter
+            return View(weather);
         }
 
-        public IActionResult Details(string apiKey, string cityName)
+        [HttpPost]
+        public IActionResult Index(string cityName)
         {
-            WeatherSite.Data.API api = new API();
-
             if (cityName.Contains(" "))
             {
                 cityName = cityName.Replace(" ", "%20");
             }
 
-            WeatherData weather = api.GetData(cityName, apiKey);
+            weather = api.GetData(cityName);
 
             return View(weather);
         }

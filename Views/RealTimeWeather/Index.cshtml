@@ -4,18 +4,10 @@
 }
 
 <div>
-    @using (Html.BeginForm("Details", "RealTimeWeather", FormMethod.Post))
+    <div class="row d-flex justify-content-center align-items-center">
+    @using (Html.BeginForm("Index", "RealTimeWeather", FormMethod.Post))
     {
         <div class="row g-3">
-            <div class="col-auto">
-                <label for="lblApiKey" class="form-label">Enter API Key:</label>
-            </div>
-            <div class="col-auto">
-                <input type="text" class="form-control" id="inputApiKey" name="ApiKey">
-            </div>
-
-            <br />
-
             <div class="col-auto">
                 <label for="lblCity" class="form-label">Enter City Name:</label>
             </div>
@@ -28,4 +20,60 @@
             </div>
         </div>
     }
+    </div>
+
+    <section class="vh-100">
+        <div class="container py-5 h-100">
+
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-8 col-lg-6 col-xl-4">
+
+                    <div class="card" style="color: #4B515D; border-radius: 35px;">
+                        <div class="card-body p-4">
+
+                            <div class="d-flex">
+                                <h6 class="flex-grow-1">@Model.Location.Name</h6>
+                                <h6>Local Time: @Model.Location.Localtime</h6>
+                            </div>
+
+                            <div class="d-flex flex-column text-center mt-5 mb-4">
+                                <h6 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;"> @Model.Current.Temp_c °C</h6>
+                                <span class="small" style="color: #868B94">@Model.Current.Condition.Text</span>
+                            </div>
+
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1" style="font-size: 1rem;">
+                                    <div>
+                                        <div>
+                                            <i class="fas fa-sun fa-fw" style="color: #868B94;"></i> <span class="ms-1"> Feels Like: @Model.Current.Feelslike_c °C</span>
+                                        </div>
+                                        <i class="fas fa-wind fa-fw" style="color: #868B94;"></i> <span class="ms-1">
+                                            Wind Speed: @Model.Current.Wind_kph @Model.Current.Wind_dir
+                                        </span>
+                                    </div>
+
+                                    <div>
+                                        <i class="fas fa-tint fa-fw" style="color: #868B94;"></i> <span class="ms-1"> Precipitaion: @Model.Current.Precip_mm mm</span>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-sun fa-fw" style="color: #868B94;"></i> <span class="ms-1"> Humidity: @Model.Current.Humidity %</span>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-sun fa-fw" style="color: #868B94;"></i> <span class="ms-1"> Pressure: @Model.Current.Pressure_mb mb</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img src="@Model.Current.Condition.Icon"
+                                         width="100px">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
 </div>
